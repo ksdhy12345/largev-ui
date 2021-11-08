@@ -1,0 +1,29 @@
+:root{
+  --hover:#a5a5a5;
+  --default:#d9d9d9;
+  --click:#f0f0f0;
+
+  --primary:rgb(64,158,255);
+  --primary-select:rgb(102,177,255);
+
+
+  --success:rgb(103,194,58);
+  --success-select:rgb(133,206,97);
+
+  --info:rgb(144,147,153);
+  --info-select:rgb(166,169,173);
+  
+  
+
+  --warning:rgb(230,162,60);
+  --warning-select:rgb(235,181,99);
+  
+  
+
+  --danger:rgb(245,108,108);
+  --danger-select:rgb(247,137,137);
+  
+  
+
+
+}
