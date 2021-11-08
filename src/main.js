@@ -12,13 +12,13 @@ import Option from './components/Option'
 
 import './assets/iconfont.css'
 
-const app = createApp(App);
+const app = createApp(Test);
 app.component(Button.name, Button)
 app.component(Input.name, Input)
 app.component(Dialog.name, Dialog)
 app.component(Form.name, Form)
 app.component(FormItem.name, FormItem)
 app.component(Select.name, Select),
-app.component(Option.name, Option),
+  app.component(Option.name, Option),
 
   app.mount('#app')

@@ -5,7 +5,8 @@
     <ls-option>2</ls-option>
     <ls-option>3</ls-option>
     <ls-option>4</ls-option>
-    <ls-option>5</ls-option>
+    <!-- <ls-option>5</ls-option>
+    <ls-option>6</ls-option>-->
   </ls-select>
 </template>
 
