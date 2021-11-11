@@ -1,7 +1,22 @@
 <template>
-  <div class="ls-select" @click="handleClick">
-    <ls-input disabled :placeholder="placeholder" class="ls-select-container"></ls-input>
-    <i class="iconfont icon-shangla ls-select-icon" :class="{'ls-select-click':showList}"></i>
+  <div class="ls-select" tabindex="0" @blur="showList = false" @keypress.enter="handleClick">
+    <ls-input
+      :disabled="isInputDisabled"
+      :placeholder="placeholder"
+      class="ls-select-container"
+      v-model="selectLabel"
+      @click="handleClick"
+      @blur="handleBlur"
+      @focus="showList = false"
+      @change.stop
+      ref="input"
+    ></ls-input>
+
+    <i
+      class="iconfont icon-shangla ls-select-icon"
+      :class="{'ls-select-click':showList}"
+      @click="handleClick"
+    ></i>
     <transition
       name="default"
       v-on:enter="menuEnter"
@@ -11,11 +26,11 @@
     >
       <div
         class="ls-select-options"
-        v-show="showList"
+        v-if="showList"
         :style="[position == 'left' ? 'left:0' : 'right:0' ]"
-        ref="options"
         :height="height + 'rem'"
       >
+        <ls-option v-if="isEmpty" empty>{{empty}}</ls-option>
         <slot></slot>
       </div>
     </transition>
@@ -23,9 +38,11 @@
 </template>
 
 <script>
-import { ref } from '@vue/reactivity'
+import { computed, ref } from '@vue/reactivity'
 import { onMounted } from '@vue/runtime-core'
+import Option from '../Option/Option.vue'
 export default {
+  components: { Option },
   name: 'LsSelect',
   props: {
     placeholder: {
@@ -37,54 +54,110 @@ export default {
       type: Number,
       default: 5,
     },
+    // v-model
+    modelValue: {
+      type: String,
+      required: true,
+    },
+
+    empty: {
+      type: String,
+      default: '暂无数据',
+    },
+    filter: {
+      type: Boolean,
+      default: false,
+    },
+    type: {
+      type: String,
+      validator: (val) => ['default', 'search'].includes(val),
+      default: 'default',
+    },
   },
-  // provide() {
-  //   // return
-  // },
-  setup(props) {
+  emits: ['update:modelValue,change'],
+  provide() {
+    return { change: this.change, selected: () => this.select }
+  },
+  methods: {
+    change(value, label) {
+      this.$emit('update:modelValue', value)
+      value !== '' && this.$emit('change', value)
+      this.select = value
+      this.selectLabel = label
+      this.showList = false
+    },
+  },
+  setup(props, { slots }) {
+    // 传入条目
+    const children = ref(0)
     const showList = ref(false)
     const position = ref('left')
-    const options = ref(null)
     const height = ref(0)
+    const isEmpty = ref(false)
+    const select = ref('')
+    const selectLabel = ref('')
+    const input = ref(null)
+
+    const isInputDisabled = computed(
+      () => props.type == 'default' && !props.filter
+    )
 
     const handleClick = () => {
-      // let childrenNum = options.value.children.length
-      // height.value = childrenNum > 5 ? 10 : childrenNum * 2
       showList.value = !showList.value
+      if (!isInputDisabled.value && !showList.value) input.value.blur()
+      if (select.value == '') {
+        selectLabel.value = ''
+      }
     }
 
-    // onMounted(() => {
-
-    // })
     const menuEnter = function (el, done) {
-      let childrenNum = options.value.children.length
-      // el.offsetWidth
+      children.value = el.children.length
       el.style.maxHeight =
-        (childrenNum > props.maxItem ? props.maxItem * 2 : childrenNum * 2) +
-        'rem'
-      el.style.transition = 'all 0.3s ease-in'
+        (children.value > props.maxItem
+          ? props.maxItem * 2
+          : children.value * 2) + 'rem'
+      if (
+        (children.value == 1 && el.children[0].attributes.empty) ||
+        children.value == 0
+      ) {
+        isEmpty.value = true
+        el.style.maxHeight = '2rem'
+      }
+      el.style.transition = 'all 0.2s ease-in'
       done()
-      if (childrenNum <= props.maxItem) {
+      if (children.value <= props.maxItem) {
         el.style.overflowY = 'hidden'
       } else {
         el.style.overflowY = 'auto'
       }
     }
     const menuLeave = function (el) {
-      // el.offsetWidth
       el.style.maxHeight = 0
-      el.style.transition = 'all 0.3s ease-out'
-      // done()
+      el.style.transition = 'all 0.2s ease-out'
+    }
+
+    const handleBlur = () => {
+      showList.value = false
+      if (select.value == '') {
+        selectLabel.value = ''
+      }
     }
 
     return {
       showList,
       position,
-      options,
       height,
       handleClick,
       menuEnter,
       menuLeave,
+      children,
+      isEmpty,
+      select,
+      selectLabel,
+      input,
+      selectLabel,
+      isInputDisabled,
+      handleBlur,
     }
   },
 }
@@ -117,13 +190,12 @@ export default {
   position: absolute;
   min-width: 100%;
   border: 1px solid #e6e6e6cc;
+  background-color: #fff;
   padding: 0.3125rem 0;
   box-shadow: 0.1875rem 0.1875rem 0.3125rem 0.125rem #f0f0f0;
   border-radius: 0.3125rem;
   top: calc(100% + 0.625rem);
-  /* max-height: 10rem; */
   overflow-y: hidden;
-  /* transition: height 300ms; */
 }
 ::-webkit-scrollbar {
   width: 0.3125rem;
@@ -143,25 +215,15 @@ export default {
 }
 
 .default-enter-active {
-  transition: all 0.3s ease-in;
+  transition: all 0.2s ease-in;
 }
 
 .default-leave-active {
-  transition: all 0.3s ease-out;
+  transition: all 0.2s ease-out;
 }
 
 .default-enter,
 .default-leave-to {
   max-height: 0;
 }
-/* .fade-enter-active,
-.fade-leave-active {
-  transition: height 1s ease;
-  height: 100px;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  height: 0;
-} */
 </style>

@@ -24,6 +24,9 @@
           <li>
             <a href="#dialog">对话框</a>
           </li>
+          <li>
+            <a href="#select">下拉框</a>
+          </li>
         </ul>
       </div>
       <div class="inner">
@@ -39,6 +42,9 @@
         <div>
           <Dialog id="dialog" />
         </div>
+        <div>
+          <Select id="select" />
+        </div>
       </div>
     </div>
   </div>
@@ -50,6 +56,7 @@ import Button from './examples/button.vue'
 import Input from './examples/input.vue'
 import Form from './examples/form.vue'
 import Dialog from './examples/dialog.vue'
+import Select from './examples/select.vue'
 export default {
   name: 'App',
   components: {
@@ -57,6 +64,7 @@ export default {
     Input,
     Form,
     Dialog,
+    Select,
   },
   setup(props, ctx) {},
 }
@@ -65,6 +73,8 @@ export default {
 <style>
 body {
   margin: 0;
+
+  margin-bottom: 200px;
 }
 .container {
   margin: 100px 0;

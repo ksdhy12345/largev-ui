@@ -1,7 +1,19 @@
 :root{
-  --hover:#a5a5a5;
+
+  /* 默认灰色底色 */
   --default:#d9d9d9;
-  --click:#f0f0f0;
+
+
+  /* 按钮点击 */
+  --btn-click:#f0f0f0;
+
+  /* input hover */
+  --input-hover:#a5a5a5; 
+
+  /* select 选中背景 */
+  --select-selected:rgb(245,247,250);
+
+
 
   --primary:rgb(64,158,255);
   --primary-select:rgb(102,177,255);

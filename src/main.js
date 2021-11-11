@@ -12,7 +12,7 @@ import Option from './components/Option'
 
 import './assets/iconfont.css'
 
-const app = createApp(Test);
+const app = createApp(App);
 app.component(Button.name, Button)
 app.component(Input.name, Input)
 app.component(Dialog.name, Dialog)

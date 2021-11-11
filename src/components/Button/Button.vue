@@ -82,7 +82,7 @@ export default {
   align-items: center;
 }
 .ls-btn:active {
-  background-color: var(--click);
+  background-color: var(--btn-click);
 }
 
 .ls-btn-type-circle {

@@ -31,6 +31,9 @@
       :disabled="disabled"
       :autofocus="autofocus"
       autocomplete="false"
+      @compositionstart="handleComposition"
+      @compositionupdate="handleComposition"
+      @compositionend="handleComposition"
     />
     <i class="iconfont icon-guanbi ls-input-icon" v-if="isClear" @click="clear"></i>
     <i class="iconfont ls-input-icon" :class="afterIcon" v-if="afterIcon" @click="afterIconClick"></i>
@@ -103,12 +106,14 @@ export default {
     const input = ref(null)
     const hover = ref(false)
     const value = ref('')
+    const isOnComposition = ref(false)
 
     const rules = inject('rules')
     const success = inject('success')
     const error = inject('error')
 
     const handleInput = (event) => {
+      if (isOnComposition.value) return
       emit('update:modelValue', event.target.value)
     }
 
@@ -158,6 +163,19 @@ export default {
       emit('afterIconClick')
     }
 
+    const handleComposition = (event) => {
+      if (event.type === 'compositionend') {
+        isOnComposition.value = false
+        handleInput(event)
+      } else {
+        isOnComposition.value = true
+      }
+    }
+
+    const focus = () => input.value.focus()
+
+    const blur = () => input.value.blur()
+
     return {
       handleInput,
       isClear,
@@ -169,7 +187,11 @@ export default {
       input,
       hover,
       value,
+      focus,
+      blur,
       tabShowPassword,
+      handleComposition,
+      isOnComposition,
     }
   },
 }
@@ -185,11 +207,11 @@ export default {
 }
 
 .ls-input-hover {
-  border-color: var(--hover);
+  border-color: var(--input-hover);
 }
 
 .ls-input:hover {
-  border-color: var(--hover);
+  border-color: var(--input-hover);
 }
 
 .ls-input-disabled {
