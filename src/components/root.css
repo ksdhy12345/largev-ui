@@ -13,6 +13,7 @@
   /* select 选中背景 */
   --select-selected:rgb(245,247,250);
 
+  --select-option-zIndex:100;
 
 
   --primary:rgb(64,158,255);

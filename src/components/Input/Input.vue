@@ -5,7 +5,7 @@
       {'ls-input-disabled':disabled},
       {'ls-input-hover':hover},
     ]"
-    :style="{width:width+'px'}"
+    :style="{width:width+'rem'}"
     ref="inputOut"
   >
     <i
@@ -89,7 +89,7 @@ export default {
     },
     width: {
       type: Number,
-      default: 300,
+      default: 20,
     },
   },
   emits: [
@@ -201,9 +201,11 @@ export default {
 .ls-input {
   display: inline-block;
   border: 1px solid var(--default);
-  padding: 12px 15px;
-  /* display: inline-flex; */
+  /* padding: 0 1rem; */
+  display: inline-flex;
+  height: 2.5rem;
   display: flex;
+  align-items: center;
 }
 
 .ls-input-hover {
@@ -223,6 +225,8 @@ export default {
   display: block;
   outline: none;
   width: 100%;
+  height: 100%;
+  padding: 0 1rem;
 }
 .ls-input-inner:disabled {
   background-color: transparent;
@@ -232,10 +236,9 @@ export default {
   cursor: pointer;
 }
 .ls-input-icon:first-child {
-  margin-right: 15px;
+  margin-left: 1rem;
 }
-.ls-input-icon:nth-child(3),
-.ls-input-icon:nth-child(4) {
-  margin-left: 15px;
+.ls-input-icon:last-child {
+  margin-right: 1rem;
 }
 </style>

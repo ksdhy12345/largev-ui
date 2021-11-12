@@ -1,15 +1,19 @@
 <template>
   <div
     class="ls-option"
-    :class="{'ls-option-empty':empty,'ls-option-selected':selected() == value}"
+    :class="{'ls-option-empty':empty,'ls-option-selected':selected() == value && selected() != ''}"
     @click="handleClick"
+    v-show="show"
+    ref="option"
+    :isMatch="isMatch"
+    :empty="empty"
   >
     <slot></slot>
   </div>
 </template>
 
 <script>
-import { inject, ref, watch } from '@vue/runtime-core'
+import { effectScope, inject, ref, watch } from '@vue/runtime-core'
 export default {
   name: 'LsOption',
   inject: ['select'],
@@ -26,16 +30,40 @@ export default {
   setup(props) {
     const change = inject('change')
     const selected = inject('selected')
-
+    const filter = inject('filter')
+    const isMatch = ref(true)
+    const option = ref(null)
+    const show = ref(true)
     const handleClick = (e) => {
       if (!props.empty) {
         change(props.value, e.target.innerText)
       }
     }
+
+    watch(filter, (newValue, oldValue) => {
+      // if (oldValue === newValue) return false
+      console.log('old' + oldValue, 'new' + newValue)
+      // console.log(oldValue === newValue)
+      if (
+        filter().trim() != '' &&
+        option.value.innerText.trim().indexOf(filter().trim()) == -1 &&
+        !props.empty
+      ) {
+        show.value = false
+        isMatch.value = false
+      } else {
+        show.value = true
+        isMatch.value = true
+      }
+    })
+
     return {
       handleClick,
       change,
       selected,
+      show,
+      option,
+      isMatch,
     }
   },
 }
