@@ -3,12 +3,15 @@
     class="ls-option"
     :class="{'ls-option-empty':empty,'ls-option-selected':selected() == value && selected() != ''}"
     @click="handleClick"
+    @mousedown="mousedown"
     v-show="show"
     ref="option"
     :isMatch="isMatch"
     :empty="empty"
   >
-    <slot></slot>
+    <span>
+      <slot></slot>
+    </span>
   </div>
 </template>
 
@@ -40,10 +43,7 @@ export default {
       }
     }
 
-    watch(filter, (newValue, oldValue) => {
-      // if (oldValue === newValue) return false
-      console.log('old' + oldValue, 'new' + newValue)
-      // console.log(oldValue === newValue)
+    watch(filter, () => {
       if (
         filter().trim() != '' &&
         option.value.innerText.trim().indexOf(filter().trim()) == -1 &&
@@ -57,6 +57,10 @@ export default {
       }
     })
 
+    const mousedown = (e) => {
+      e.preventDefault()
+    }
+
     return {
       handleClick,
       change,
@@ -64,6 +68,7 @@ export default {
       show,
       option,
       isMatch,
+      mousedown,
     }
   },
 }

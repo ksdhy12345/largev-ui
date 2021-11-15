@@ -91,6 +91,7 @@ export default {
       type: Number,
       default: 20,
     },
+    ref: {},
   },
   emits: [
     'update:modelValue',
@@ -175,6 +176,8 @@ export default {
     const focus = () => input.value.focus()
 
     const blur = () => input.value.blur()
+
+    window.onblur = () => input.value.blur()
 
     return {
       handleInput,

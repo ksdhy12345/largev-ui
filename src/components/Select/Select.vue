@@ -1,14 +1,14 @@
 <template>
-  <div class="ls-select" tabindex="0" @blur="showList = false" @keypress.enter="handleClick">
+  <div class="ls-select" tabindex="0" @blur="showList = false">
     <ls-input
       :disabled="isInputDisabled"
-      :placeholder="prevSelect.selectLabel || placeholder"
+      :placeholder="select.selectLabel || placeholder"
       class="ls-select-container"
-      v-model="select.selectLabel"
+      v-model="inputValue"
       @click="handleClick"
-      @blur="handleInputBlur"
       @focus="handleInputFocus"
       @change.stop
+      @blur="handleInputBlur"
       ref="input"
     ></ls-input>
 
@@ -35,8 +35,8 @@
 </template>
 
 <script>
-import { computed, effect, effectScope, reactive, ref } from '@vue/reactivity'
-import { nextTick, onMounted, provide, watch } from '@vue/runtime-core'
+import { computed, reactive, ref } from '@vue/reactivity'
+import { nextTick, watch } from '@vue/runtime-core'
 import Option from '../Option/Option.vue'
 export default {
   components: { Option },
@@ -67,7 +67,7 @@ export default {
     },
     type: {
       type: String,
-      validator: (val) => ['default', 'search'].includes(val),
+      validator: (val) => ['default'].includes(val),
       default: 'default',
     },
   },
@@ -76,7 +76,10 @@ export default {
     return {
       change: this.change,
       selected: () => this.select.selectValue,
-      filter: () => this.select.selectLabel,
+      /**
+       * 该方式传递响应式数据会丢失初始数据响应
+       */
+      filter: () => this.inputValue,
     }
   },
 
@@ -89,14 +92,12 @@ export default {
     const isEmpty = ref(false)
     const input = ref(null)
     const options = ref(null)
+
+    // input值（可筛选时）
+    const inputValue = ref('')
+
     // 当前选中项
     const select = reactive({
-      selectLabel: '',
-      selectValue: '',
-    })
-
-    // 之前选中项
-    const prevSelect = reactive({
       selectLabel: '',
       selectValue: '',
     })
@@ -108,7 +109,10 @@ export default {
     // 点击 select 选择器
     const handleClick = (e) => {
       showList.value = !showList.value
-      if (!showList.value) e.target.blur()
+      if (!showList.value) {
+        e.target.blur()
+        inputValue.value = select.selectLabel
+      }
     }
 
     // 动画
@@ -145,10 +149,9 @@ export default {
      * @param label 选中值的文本
      */
     const change = (value, label) => {
-      prevSelect.selectValue = select.selectValue
-      prevSelect.selectLabel = select.selectLabel
       // 展示文本的改变
       select.selectLabel = label
+      inputValue.value = label
       // 记录选中的值
       select.selectValue = value
       // 响应外层的 v-model
@@ -157,42 +160,41 @@ export default {
       value !== '' && emit('change', value)
       // 关闭选项列表
       showList.value = false
+      input.value.blur()
     }
 
     // 筛选过滤结果为空时提供空值
-    const checkList = () => {
-      nextTick(() => {
-        if (!isInputDisabled.value && showList.value) {
-          if (
-            !Array.from(options.value.children).filter(
-              (el) =>
-                el.attributes.ismatch.value == 'true' &&
-                el.attributes.empty.value != 'true'
-            ).length
-          ) {
-            isEmpty.value = true
-          } else {
-            isEmpty.value = false
+    watch(inputValue, () => {
+      if (inputValue.value == '') {
+        isEmpty.value = false
+      } else {
+        nextTick(() => {
+          if (!isInputDisabled.value && showList.value) {
+            if (
+              !Array.from(options.value.children).filter(
+                (el) =>
+                  el.attributes.ismatch.value == 'true' &&
+                  el.attributes.empty.value != 'true'
+              ).length
+            ) {
+              isEmpty.value = true
+            } else {
+              isEmpty.value = false
+            }
           }
-        }
-      })
-    }
-
-// ***********************************问题代码********************************
-    const handleInputFocus = (e) => {
-      prevSelect.selectLabel = select.selectLabel
-      select.selectLabel = ''
-      watch(() => select.selectLabel, checkList)
-    }
-
-    const handleInputBlur = (e) => {
-      if (select.selectLabel == '' && prevSelect.selectLabel != '') {
-        select.selectLabel = prevSelect.selectLabel
+        })
       }
-      // select.selectLabel = ''
-      // showList.value = false
+    })
+
+    const handleInputFocus = (e) => {
+      inputValue.value = ''
     }
-// ***********************************end********************************
+
+    const handleInputBlur = () => {
+      inputValue.value = select.selectLabel
+      showList.value = false
+    }
+
     return {
       showList,
       position,
@@ -208,9 +210,8 @@ export default {
       input,
       isInputDisabled,
       change,
-      prevSelect,
       options,
-      checkList,
+      inputValue,
     }
   },
 }

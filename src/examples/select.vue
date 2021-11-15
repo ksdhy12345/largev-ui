@@ -9,6 +9,10 @@
     <ls-select v-model="data" @change="handleChange" filter>
       <ls-option v-for="item in list" :key="item.value" :value="item.id">{{item.name}}</ls-option>
     </ls-select>
+    <h5>多选的下拉框</h5>
+    <ls-select v-model="data" @change="handleChange" multiple>
+      <ls-option v-for="item in list" :key="item.value" :value="item.id">{{item.name}}</ls-option>
+    </ls-select>
   </div>
 </template>
 
