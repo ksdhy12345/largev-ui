@@ -15,20 +15,17 @@ yarn serve
 yarn build
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
-# 问题
 
-**11-28**
+# show
 
-input如果不加v-model就无法输入值
+![image-20211115174545821](C:\Users\yubo-ls\AppData\Roaming\Typora\typora-user-images\image-20211115174545821.png)
 
-input布局问题
+![image-20211115174603232](C:\Users\yubo-ls\AppData\Roaming\Typora\typora-user-images\image-20211115174603232.png)
 
-input type=password 密码显示问题
+![image-20211115174623776](C:\Users\yubo-ls\AppData\Roaming\Typora\typora-user-images\image-20211115174623776.png)
 
-表单提交失效
+![image-20211115174642607](C:\Users\yubo-ls\AppData\Roaming\Typora\typora-user-images\image-20211115174642607.png)
 
-
+![image-20211115174710994](C:\Users\yubo-ls\AppData\Roaming\Typora\typora-user-images\image-20211115174710994.png)
