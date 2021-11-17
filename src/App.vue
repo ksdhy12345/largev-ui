@@ -27,6 +27,9 @@
           <li>
             <a href="#select">下拉框</a>
           </li>
+          <li>
+            <a href="#table">表格</a>
+          </li>
         </ul>
       </div>
       <div class="inner">
@@ -45,6 +48,9 @@
         <div>
           <Select id="select" />
         </div>
+        <div>
+          <Table id="table" />
+        </div>
       </div>
     </div>
   </div>
@@ -57,6 +63,7 @@ import Input from './examples/input.vue'
 import Form from './examples/form.vue'
 import Dialog from './examples/dialog.vue'
 import Select from './examples/select.vue'
+import Table from './examples/table.vue'
 export default {
   name: 'App',
   components: {
@@ -65,6 +72,7 @@ export default {
     Form,
     Dialog,
     Select,
+    Table,
   },
   setup(props, ctx) {},
 }
@@ -84,8 +92,8 @@ body {
   display: flex;
 }
 header {
-  top: 0;
-  position: fixed;
+  /* top: 0; */
+  /* position: fixed; */
   width: 100%;
   border-bottom: 1px solid #f0f0f0;
   background-color: #fff;

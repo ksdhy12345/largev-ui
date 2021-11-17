@@ -75,8 +75,8 @@ export default {
 .ls-btn {
   background-color: #fff;
   border: 1px solid var(--default);
-  border-radius: 3px;
-  padding: 12px 20px;
+  border-radius: 0.1875rem;
+  padding: 0.75rem 1.25rem;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -86,21 +86,21 @@ export default {
 }
 
 .ls-btn-type-circle {
-  border-radius: 25px;
-  padding: 12px 23px;
+  border-radius: 1.5625rem;
+  padding: 0.75rem 1.4375rem;
 }
 .ls-btn-type-icon {
   border-radius: 50%;
-  padding: 12px 12px;
+  padding: 0.75rem 0.75rem;
 }
 .ls-btn-disabled {
   cursor: not-allowed;
 }
 .ls-btn-before-icon {
-  margin-right: 10px;
+  margin-right: 0.625rem;
 }
 .ls-btn-after-icon {
-  margin-left: 10px;
+  margin-left: 0.625rem;
 }
 .ls-btn-primary {
   color: #fff;

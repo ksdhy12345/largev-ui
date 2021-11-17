@@ -9,8 +9,12 @@ import Form from './components/Form'
 import FormItem from './components/FormItem'
 import Select from './components/Select'
 import Option from './components/Option'
-
+import Table from './components/Table'
+import './utils/rem.js'
 import './assets/iconfont.css'
+
+
+
 
 const app = createApp(App);
 app.component(Button.name, Button)
@@ -20,5 +24,6 @@ app.component(Form.name, Form)
 app.component(FormItem.name, FormItem)
 app.component(Select.name, Select),
   app.component(Option.name, Option),
+  app.component(Table.name, Table),
 
   app.mount('#app')

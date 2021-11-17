@@ -12,7 +12,11 @@
       ref="input"
     ></ls-input>
 
-    <i class="iconfont icon-shangla ls-select-icon" :class="{'ls-select-click':showList}"></i>
+    <i
+      class="iconfont icon-shangla ls-select-icon"
+      style="font-size:1rem"
+      :class="{'ls-select-click':showList}"
+    ></i>
     <transition
       name="default"
       v-on:enter="menuEnter"
