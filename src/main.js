@@ -10,20 +10,25 @@ import FormItem from './components/FormItem'
 import Select from './components/Select'
 import Option from './components/Option'
 import Table from './components/Table'
+import Checkbox from './components/Checkbox'
+import checkboxGroup from './components/CheckboxGroup'
 import './utils/rem.js'
 import './assets/iconfont.css'
 
 
 
 
-const app = createApp(App);
+const app = createApp(Test);
 app.component(Button.name, Button)
 app.component(Input.name, Input)
 app.component(Dialog.name, Dialog)
 app.component(Form.name, Form)
 app.component(FormItem.name, FormItem)
-app.component(Select.name, Select),
-  app.component(Option.name, Option),
+app.component(Option.name, Option),
   app.component(Table.name, Table),
+  app.component(Checkbox.name, Checkbox),
+  app.component(Select.name, Select),
+  app.component(checkboxGroup.name, checkboxGroup),
+
 
   app.mount('#app')
