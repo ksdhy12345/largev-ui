@@ -105,7 +105,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .ls-form-item {
   display: flex;
   align-items: center;

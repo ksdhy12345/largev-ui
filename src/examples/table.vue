@@ -11,6 +11,11 @@
     <br />
     <br />
     <br />
+    <h3>选择器表格</h3>
+    <ls-table :data="data5" :column="column5" checked></ls-table>
+    <br />
+    <br />
+    <br />
     <h3>自定义内容的表格</h3>
     <ls-table :data="data3" :column="column3">
       <template #age="scope">
@@ -40,6 +45,7 @@
 </template>
 
 <script>
+import { ref } from '@vue/reactivity'
 export default {
   data() {
     return {
@@ -85,6 +91,26 @@ export default {
         { id: 2, name: '李四', age: '189' },
         { id: 3, name: '王五', age: '18' },
       ],
+    }
+  },
+  setup() {
+    const column5 = [
+      { key: 'name', text: '姓名' },
+      { key: 'age', text: '年龄' },
+    ]
+    const data5 = [
+      {
+        id: 1,
+        name: '张三',
+        age: '181',
+      },
+      { id: 2, name: '李四', age: '189' },
+      { id: 3, name: '王五', age: '18' },
+    ]
+
+    return {
+      column5,
+      data5,
     }
   },
 }

@@ -71,7 +71,7 @@ export default {
 </script>
 
 <style src="../root.css"></style>
-<style>
+<style scoped>
 .ls-btn {
   background-color: #fff;
   border: 1px solid var(--default);

@@ -30,6 +30,18 @@
           <li>
             <a href="#table">表格</a>
           </li>
+          <li>
+            <a href="#checkbox">多选框</a>
+          </li>
+          <li>
+            <a href="#radio">单选框</a>
+          </li>
+          <li>
+            <a href="#treeSelect">树形选择器</a>
+          </li>
+          <li>
+            <a href="#wordCloud">词云</a>
+          </li>
         </ul>
       </div>
       <div class="inner">
@@ -51,6 +63,19 @@
         <div>
           <Table id="table" />
         </div>
+        <div>
+          <Checkbox id="checkbox" />
+        </div>
+        <div>
+          <Radio id="radio" />
+        </div>
+
+        <div>
+          <TreeSelect id="treeSelect" />
+        </div>
+        <div>
+          <WordCloud id="wordCloud" />
+        </div>
       </div>
     </div>
   </div>
@@ -64,6 +89,10 @@ import Form from './examples/form.vue'
 import Dialog from './examples/dialog.vue'
 import Select from './examples/select.vue'
 import Table from './examples/table.vue'
+import Checkbox from './examples/checkbox'
+import Radio from './examples/radio'
+import TreeSelect from './examples/treeSelect'
+import WordCloud from './examples/wordCloud'
 export default {
   name: 'App',
   components: {
@@ -73,12 +102,16 @@ export default {
     Dialog,
     Select,
     Table,
+    TreeSelect,
+    Checkbox,
+    Radio,
+    WordCloud,
   },
   setup(props, ctx) {},
 }
 </script>
 
-<style>
+<style scoped>
 body {
   margin: 0;
 

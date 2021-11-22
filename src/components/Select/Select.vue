@@ -222,7 +222,7 @@ export default {
 </script>
 
 <style src="../root.css"></style>
-<style>
+<style scoped>
 .ls-select-click {
   transform: rotate(180deg);
 }

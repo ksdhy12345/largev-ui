@@ -1,10 +1,9 @@
 <template>
-  <table cellspacing="0" class="ls-table" :class="{'ls-table-borderd':borderd}">
+  <table cellspacing="0" cellpadding="0" class="ls-table">
     <thead class="ls-thead">
       <tr class="ls-tr">
-        <td class="ls-td" v-if="checked">
+        <td class="ls-td ls-td-checkbox" v-if="checked">
           <ls-checkbox
-            label="全选"
             v-model="checkAll"
             :indeterminate="indeterminate"
             @change="handleCheckAllChange"
@@ -13,10 +12,12 @@
         <td class="ls-td" v-for="item in column" :key="item.prop">{{item.text}}</td>
       </tr>
     </thead>
-    <ls-checkbox-group v-model="checkedList" @change="handleCheckList">
+  </table>
+  <ls-checkbox-group v-model="checkedList" @change="handleCheckList">
+    <table cellspacing="0" cellpadding="0" class="ls-table" :class="{'ls-table-borderd':borderd}">
       <tbody class="ls-tbody">
         <tr v-for="(item) in data" class="ls-tr" :key="item.id" :class="{'ls-tr-hover':hover}">
-          <td v-if="checked" class="ls-td">
+          <td v-if="checked" class="ls-td ls-td-checkbox">
             <ls-checkbox :labelData="item"></ls-checkbox>
           </td>
           <td class="ls-td" v-for="item2 in column" :key="item2">
@@ -30,13 +31,13 @@
           </td>
         </tr>
       </tbody>
-    </ls-checkbox-group>
-  </table>
+    </table>
+  </ls-checkbox-group>
 </template>
 
 <script>
 import { computed, ref } from '@vue/reactivity'
-import { onMounted } from '@vue/runtime-core'
+import { onMounted, watch } from '@vue/runtime-core'
 export default {
   name: 'LsTable',
   props: {
@@ -61,6 +62,7 @@ export default {
       default: false,
     },
   },
+  emits: ['update:modelValue'],
 
   setup(props, ctx) {
     // 先找有没有自定义属性，如果有，则找模板，如果没有，则看有没有值，有值就显示值  没有就显示模板   如果都没有就为空
@@ -82,6 +84,8 @@ export default {
       checkedList.value = val ? props.data : []
     }
 
+    watch(checkedList, () => ctx.emit('update:modelValue', checkedList.value))
+
     return {
       handleCheckList,
       handleCheckAllChange,
@@ -95,14 +99,14 @@ export default {
 <style src="../root.css"></style>
 <style scoped>
 .ls-table {
-  min-width: 40rem;
+  width: 100%;
   table-layout: fixed;
 }
 .ls-thead {
   font-weight: 700;
 }
 .ls-td {
-  padding: 1rem;
+  padding: 1.5rem 1rem;
   border-bottom: 1px solid var(--table-border);
 }
 .ls-tbody .ls-tr:last-child .ls-td {
@@ -119,5 +123,9 @@ export default {
 }
 .ls-tr-hover:hover {
   background-color: var(--table-hover);
+}
+
+.ls-td-checkbox {
+  width: 1rem;
 }
 </style>

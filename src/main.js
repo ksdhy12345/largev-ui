@@ -12,13 +12,17 @@ import Option from './components/Option'
 import Table from './components/Table'
 import Checkbox from './components/Checkbox'
 import checkboxGroup from './components/CheckboxGroup'
+import Radio from './components/Radio'
+import RadioGroup from './components/RadioGroup'
+import TreeSelect from './components/TreeSelect'
+import WordCloud from './components/WordCloud'
 import './utils/rem.js'
 import './assets/iconfont.css'
 
 
 
 
-const app = createApp(Test);
+const app = createApp(App);
 app.component(Button.name, Button)
 app.component(Input.name, Input)
 app.component(Dialog.name, Dialog)
@@ -29,6 +33,11 @@ app.component(Option.name, Option),
   app.component(Checkbox.name, Checkbox),
   app.component(Select.name, Select),
   app.component(checkboxGroup.name, checkboxGroup),
+  app.component(Radio.name, Radio),
+  app.component(RadioGroup.name, RadioGroup),
+  app.component(TreeSelect.name, TreeSelect),
+  app.component(WordCloud.name, WordCloud),
+  console.log(WordCloud.name, WordCloud);
 
 
-  app.mount('#app')
+app.mount('#app')

@@ -19,8 +19,14 @@
   /* 表格外边框 */
   --table-out-border:#d9d9d9;
     /* 表格内边框 */
-  --table-border:#d9d9d9;
+  --table-border:#ebeef5;
   --table-hover:rgb(245,247,250); 
+
+  /* 单选框边框 */
+  --radio-border-color:#d9d9d9;
+
+
+
 
   --primary:rgb(64,158,255);
   --primary-select:rgb(102,177,255);
@@ -48,4 +54,9 @@
 }
 *{
   font-size: 1rem;
+}
+
+ul li{
+  list-style: none;
+  padding: 0;
 }
