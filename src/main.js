@@ -18,11 +18,13 @@ import TreeSelect from './components/TreeSelect'
 import WordCloud from './components/WordCloud'
 import './utils/rem.js'
 import './assets/iconfont.css'
+import Image from './components/Image'
+import loading from './components/Loading'
 
 
 
 
-const app = createApp(App);
+const app = createApp(Test);
 app.component(Button.name, Button)
 app.component(Input.name, Input)
 app.component(Dialog.name, Dialog)
@@ -37,7 +39,8 @@ app.component(Option.name, Option),
   app.component(RadioGroup.name, RadioGroup),
   app.component(TreeSelect.name, TreeSelect),
   app.component(WordCloud.name, WordCloud),
-  console.log(WordCloud.name, WordCloud);
+  app.component(Image.name, Image),
+  app.component(loading.name, loading),
 
 
-app.mount('#app')
+  app.mount('#app')

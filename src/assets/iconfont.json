@@ -1,58 +1,58 @@
 {
-  "id": "2639400",
-  "name": "网站UI",
+  "id": "2908113",
+  "name": "largev-ui",
   "font_family": "iconfont",
   "css_prefix_text": "icon-",
   "description": "",
   "glyphs": [
     {
-      "icon_id": "24920552",
-      "name": "单人",
-      "font_class": "a-icon200-18",
-      "unicode": "e617",
-      "unicode_decimal": 58903
+      "icon_id": "4237379",
+      "name": "复位",
+      "font_class": "fuwei",
+      "unicode": "e62e",
+      "unicode_decimal": 58926
     },
     {
-      "icon_id": "24920541",
-      "name": "全部",
-      "font_class": "a-icon200-17",
-      "unicode": "e616",
-      "unicode_decimal": 58902
+      "icon_id": "2076243",
+      "name": " 增加",
+      "font_class": "zengjia",
+      "unicode": "e889",
+      "unicode_decimal": 59529
     },
     {
-      "icon_id": "24870706",
-      "name": "全部患者",
-      "font_class": "a-icon200-16",
-      "unicode": "e615",
-      "unicode_decimal": 58901
+      "icon_id": "5387869",
+      "name": "减号_o",
+      "font_class": "jianhao_o",
+      "unicode": "eb79",
+      "unicode_decimal": 60281
     },
     {
-      "icon_id": "23581248",
-      "name": "牙",
-      "font_class": "a-icon200-15",
-      "unicode": "e613",
-      "unicode_decimal": 58899
+      "icon_id": "8229196",
+      "name": "向右旋转",
+      "font_class": "xiangyouxuanzhuan",
+      "unicode": "e66a",
+      "unicode_decimal": 58986
     },
     {
-      "icon_id": "17804521",
-      "name": "设备重启单",
-      "font_class": "shebeizhongqidan",
-      "unicode": "e63d",
-      "unicode_decimal": 58941
+      "icon_id": "8229197",
+      "name": "向左旋转",
+      "font_class": "xiangzuoxuanzhuan",
+      "unicode": "e66b",
+      "unicode_decimal": 58987
     },
     {
-      "icon_id": "11376048",
-      "name": "眼睛 (闭眼)",
-      "font_class": "yanjingbiyan",
-      "unicode": "e61e",
-      "unicode_decimal": 58910
+      "icon_id": "577402",
+      "name": "向右1",
+      "font_class": "right",
+      "unicode": "e775",
+      "unicode_decimal": 59253
     },
     {
-      "icon_id": "8045743",
-      "name": "取消",
-      "font_class": "quxiao",
-      "unicode": "e607",
-      "unicode_decimal": 58887
+      "icon_id": "577406",
+      "name": "向左1",
+      "font_class": "left",
+      "unicode": "e779",
+      "unicode_decimal": 59257
     },
     {
       "icon_id": "53209",
@@ -62,18 +62,11 @@
       "unicode_decimal": 59266
     },
     {
-      "icon_id": "12744055",
-      "name": "多选",
-      "font_class": "duoxuan",
-      "unicode": "fbd4",
-      "unicode_decimal": 64468
-    },
-    {
-      "icon_id": "538491",
-      "name": "减",
-      "font_class": "jian",
-      "unicode": "e643",
-      "unicode_decimal": 58947
+      "icon_id": "1036380",
+      "name": "编辑",
+      "font_class": "bianji",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
     },
     {
       "icon_id": "1115066",
@@ -83,6 +76,27 @@
       "unicode_decimal": 58927
     },
     {
+      "icon_id": "1152298",
+      "name": "展开",
+      "font_class": "zhankai1",
+      "unicode": "e612",
+      "unicode_decimal": 58898
+    },
+    {
+      "icon_id": "1260798",
+      "name": "F",
+      "font_class": "F",
+      "unicode": "e9d6",
+      "unicode_decimal": 59862
+    },
+    {
+      "icon_id": "1441948",
+      "name": "上拉",
+      "font_class": "shangla",
+      "unicode": "e65b",
+      "unicode_decimal": 58971
+    },
+    {
       "icon_id": "1766259",
       "name": "符号-日期-线性",
       "font_class": "riqi",
@@ -90,11 +104,67 @@
       "unicode_decimal": 58992
     },
     {
+      "icon_id": "2667528",
+      "name": "设置",
+      "font_class": "shezhi",
+      "unicode": "e61d",
+      "unicode_decimal": 58909
+    },
+    {
+      "icon_id": "2897797",
+      "name": "眼睛",
+      "font_class": "yanjing",
+      "unicode": "e614",
+      "unicode_decimal": 58900
+    },
+    {
+      "icon_id": "4186001",
+      "name": "刷新",
+      "font_class": "shuaxin",
+      "unicode": "e626",
+      "unicode_decimal": 58918
+    },
+    {
+      "icon_id": "5093352",
+      "name": "添加",
+      "font_class": "tianjia",
+      "unicode": "e609",
+      "unicode_decimal": 58889
+    },
+    {
       "icon_id": "5401273",
       "name": "筛选",
       "font_class": "shaixuan",
       "unicode": "e628",
       "unicode_decimal": 58920
+    },
+    {
+      "icon_id": "7147962",
+      "name": "报告收藏",
+      "font_class": "baogaoshoucang",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "8045743",
+      "name": "取消",
+      "font_class": "quxiao",
+      "unicode": "e607",
+      "unicode_decimal": 58887
+    },
+    {
+      "icon_id": "8798001",
+      "name": "搜索",
+      "font_class": "sousuo",
+      "unicode": "e7d2",
+      "unicode_decimal": 59346
+    },
+    {
+      "icon_id": "9099859",
+      "name": "展开",
+      "font_class": "shouqi1",
+      "unicode": "e600",
+      "unicode_decimal": 58880
     },
     {
       "icon_id": "9874544",
@@ -111,95 +181,11 @@
       "unicode_decimal": 59108
     },
     {
-      "icon_id": "15861140",
-      "name": "医生",
-      "font_class": "yisheng",
-      "unicode": "e7ad",
-      "unicode_decimal": 59309
-    },
-    {
-      "icon_id": "16350233",
-      "name": "对",
-      "font_class": "dui",
-      "unicode": "e715",
-      "unicode_decimal": 59157
-    },
-    {
-      "icon_id": "21730874",
-      "name": "tag",
-      "font_class": "tag",
-      "unicode": "e678",
-      "unicode_decimal": 59000
-    },
-    {
-      "icon_id": "2897797",
-      "name": "眼睛",
-      "font_class": "yanjing",
-      "unicode": "e614",
-      "unicode_decimal": 58900
-    },
-    {
-      "icon_id": "1260798",
-      "name": "F",
-      "font_class": "F",
-      "unicode": "e9d6",
-      "unicode_decimal": 59862
-    },
-    {
-      "icon_id": "1152298",
-      "name": "展开",
-      "font_class": "zhankai1",
-      "unicode": "e612",
-      "unicode_decimal": 58898
-    },
-    {
-      "icon_id": "9099859",
-      "name": "展开",
-      "font_class": "shouqi1",
-      "unicode": "e600",
-      "unicode_decimal": 58880
-    },
-    {
-      "icon_id": "16892216",
-      "name": "展开",
-      "font_class": "zhankai",
-      "unicode": "e88b",
-      "unicode_decimal": 59531
-    },
-    {
-      "icon_id": "22593126",
-      "name": "加号",
-      "font_class": "jiahao",
-      "unicode": "e60b",
-      "unicode_decimal": 58891
-    },
-    {
-      "icon_id": "1036380",
-      "name": "编辑",
-      "font_class": "bianji",
-      "unicode": "e63b",
-      "unicode_decimal": 58939
-    },
-    {
-      "icon_id": "2667528",
-      "name": "设置",
-      "font_class": "shezhi",
-      "unicode": "e61d",
-      "unicode_decimal": 58909
-    },
-    {
-      "icon_id": "5093352",
-      "name": "添加",
-      "font_class": "tianjia",
-      "unicode": "e609",
-      "unicode_decimal": 58889
-    },
-    {
-      "icon_id": "8798001",
-      "name": "搜索",
-      "font_class": "sousuo",
-      "unicode": "e7d2",
-      "unicode_decimal": 59346
+      "icon_id": "11376048",
+      "name": "眼睛 (闭眼)",
+      "font_class": "yanjingbiyan",
+      "unicode": "e61e",
+      "unicode_decimal": 58910
     },
     {
       "icon_id": "12685485",
@@ -207,6 +193,13 @@
       "font_class": "icon_huabanfuben",
       "unicode": "e639",
       "unicode_decimal": 58937
+    },
+    {
+      "icon_id": "12744055",
+      "name": "多选",
+      "font_class": "duoxuan",
+      "unicode": "fbd4",
+      "unicode_decimal": 64468
     },
     {
       "icon_id": "12771540",
@@ -223,32 +216,25 @@
       "unicode_decimal": 58897
     },
     {
-      "icon_id": "17984171",
-      "name": "关  闭",
-      "font_class": "guanbi",
-      "unicode": "e6c9",
-      "unicode_decimal": 59081
+      "icon_id": "15861140",
+      "name": "医生",
+      "font_class": "yisheng",
+      "unicode": "e7ad",
+      "unicode_decimal": 59309
     },
     {
-      "icon_id": "1441948",
-      "name": "上拉",
-      "font_class": "shangla",
-      "unicode": "e65b",
-      "unicode_decimal": 58971
+      "icon_id": "16350233",
+      "name": "对",
+      "font_class": "dui",
+      "unicode": "e715",
+      "unicode_decimal": 59157
     },
     {
-      "icon_id": "4186001",
-      "name": "刷新",
-      "font_class": "shuaxin",
-      "unicode": "e626",
-      "unicode_decimal": 58918
-    },
-    {
-      "icon_id": "7147962",
-      "name": "报告收藏",
-      "font_class": "baogaoshoucang",
-      "unicode": "e618",
-      "unicode_decimal": 58904
+      "icon_id": "16892216",
+      "name": "展开",
+      "font_class": "zhankai",
+      "unicode": "e88b",
+      "unicode_decimal": 59531
     },
     {
       "icon_id": "17711059",
@@ -256,6 +242,62 @@
       "font_class": "shouqi",
       "unicode": "e815",
       "unicode_decimal": 59413
+    },
+    {
+      "icon_id": "17804521",
+      "name": "设备重启单",
+      "font_class": "shebeizhongqidan",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "17984171",
+      "name": "关  闭",
+      "font_class": "guanbi",
+      "unicode": "e6c9",
+      "unicode_decimal": 59081
+    },
+    {
+      "icon_id": "21730874",
+      "name": "tag",
+      "font_class": "tag",
+      "unicode": "e678",
+      "unicode_decimal": 59000
+    },
+    {
+      "icon_id": "22593126",
+      "name": "加号",
+      "font_class": "jiahao",
+      "unicode": "e60b",
+      "unicode_decimal": 58891
+    },
+    {
+      "icon_id": "23581248",
+      "name": "牙",
+      "font_class": "a-icon200-15",
+      "unicode": "e613",
+      "unicode_decimal": 58899
+    },
+    {
+      "icon_id": "24870706",
+      "name": "全部患者",
+      "font_class": "a-icon200-16",
+      "unicode": "e615",
+      "unicode_decimal": 58901
+    },
+    {
+      "icon_id": "24920541",
+      "name": "全部",
+      "font_class": "a-icon200-17",
+      "unicode": "e616",
+      "unicode_decimal": 58902
+    },
+    {
+      "icon_id": "24920552",
+      "name": "单人",
+      "font_class": "a-icon200-18",
+      "unicode": "e617",
+      "unicode_decimal": 58903
     }
   ]
 }
