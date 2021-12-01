@@ -3,9 +3,9 @@
     <h2>按钮</h2>
     <div class="buttons">
       <div>
-        <ls-button class="btn">default</ls-button>
-        <ls-button class="btn" primary>primary</ls-button>
-        <ls-button class="btn" danger>danger</ls-button>
+        <ls-button class="btn" disabled>default</ls-button>
+        <ls-button class="btn" disabled primary>primary</ls-button>
+        <ls-button class="btn" disabled danger>danger</ls-button>
         <ls-button class="btn" warning>warning</ls-button>
         <ls-button class="btn" success>success</ls-button>
         <ls-button class="btn" prefix="icon-sousuo">前置图标按钮</ls-button>
@@ -30,10 +30,10 @@
         <ls-button class="btn" warning type="icon">
           <i class="iconfont icon-quxiao"></i>
         </ls-button>
-        <ls-button class="btn" danger type="icon">
+        <ls-button class="btn" danger type="icon" disabled>
           <i class="iconfont icon-icon_huabanfuben"></i>
         </ls-button>
-        <ls-button class="btn" success type="icon">
+        <ls-button class="btn" success type="icon" disabled>
           <i class="iconfont icon-dui"></i>
         </ls-button>
       </div>

@@ -1,7 +1,7 @@
 <template>
   <div class="ls-select" tabindex="0" @blur="showList = false">
     <ls-input
-      :disabled="isInputDisabled"
+      :isSelect="isInputDisabled"
       :placeholder="select.selectLabel || placeholder"
       class="ls-select-container"
       v-model="inputValue"

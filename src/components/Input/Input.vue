@@ -3,6 +3,7 @@
     class="ls-input"
     :class="[
       {'ls-input-disabled':disabled},
+      {'ls-input-select':isSelect},
       {'ls-input-hover':hover},
     ]"
     :style="{width:width+'rem'}"
@@ -18,7 +19,8 @@
       ref="input"
       class="ls-input-inner"
       :class="[
-        {'ls-input-disabled':disabled},
+        {'ls-input-disabled':disabled },
+        {'ls-input-select':isSelect},
         $attrs.class
       ]"
       :type="type"
@@ -28,7 +30,7 @@
       @blur="handleBlur"
       :value="modelValue || value"
       :placeholder="placeholder"
-      :disabled="disabled"
+      :disabled="disabled || isSelect"
       :autofocus="autofocus"
       autocomplete="false"
       @compositionstart="handleComposition"
@@ -91,6 +93,11 @@ export default {
       type: Number,
       default: 20,
     },
+    // 该属性仅可用于内置的select组件，其他组件勿用
+    isSelect: {
+      type: Boolean,
+      default: false,
+    },
     ref: {},
   },
   emits: [
@@ -119,7 +126,11 @@ export default {
     }
 
     const isClear = computed(() => {
-      return props.clearable && props.modelValue && !props.disabled
+      return (
+        props.clearable &&
+        props.modelValue &&
+        (!props.disabled || !props.isSelect)
+      )
     })
 
     const clear = () => {
@@ -128,7 +139,7 @@ export default {
     }
 
     const handleFocus = (event) => {
-      if (!props.disabled) hover.value = true
+      if (!props.disabled || !props.isSelect) hover.value = true
       emit('focus', event)
     }
 
@@ -147,7 +158,7 @@ export default {
     }
 
     const handleBlur = (event) => {
-      if (!props.disabled) hover.value = false
+      if (!props.disabled || !isSelect) hover.value = false
       rules && validator(event.target.value)
       emit('blur', event)
     }
@@ -221,6 +232,16 @@ export default {
 
 .ls-input-disabled {
   cursor: not-allowed;
+  background-color: var(--input-disabled-background);
+}
+
+
+.ls-input-disabled:hover {
+  border-color: var(--default);
+}
+
+.ls-input-select {
+  background-color: #fff;
 }
 
 .ls-input-inner {

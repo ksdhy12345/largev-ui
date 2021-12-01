@@ -1,6 +1,5 @@
 import { createApp } from 'vue'
 import App from './App.vue'
-import Test from './Test.vue'
 
 import Button from './components/Button'
 import Input from './components/Input'
@@ -24,7 +23,7 @@ import loading from './components/Loading'
 
 
 
-const app = createApp(Test);
+const app = createApp(App);
 app.component(Button.name, Button)
 app.component(Input.name, Input)
 app.component(Dialog.name, Dialog)

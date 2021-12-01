@@ -11,6 +11,8 @@
 
   /* input hover */
   --input-hover:#a5a5a5; 
+  /* input disabled */
+  --input-disabled-background:rgb(245,247,250);
 
   /* select 选中背景 */
   --select-selected:rgb(245,247,250);

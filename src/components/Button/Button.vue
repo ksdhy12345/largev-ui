@@ -4,6 +4,7 @@
     :disabled="disabled"
     :class="[
         {'ls-btn-disabled':disabled},
+        {'ls-btn-small':small},
         {'ls-btn-type-circle':type=='circle'},
         {'ls-btn-type-icon':type=='icon'},
         {'ls-btn-danger':danger},
@@ -13,9 +14,9 @@
       ]"
     @click="handleClick"
   >
-    <i :class="'ls-btn-before-icon iconfont ' + prefix" v-if="prefix"></i>
+    <i :class="'ls-btn-before-icon iconfont ' + prefix" v-if="prefix" style="font-size:1.25rem"></i>
     <slot></slot>
-    <i :class="'ls-btn-after-icon iconfont ' + suffix" v-if="suffix"></i>
+    <i :class="'ls-btn-after-icon iconfont ' + suffix" v-if="suffix" style="font-size:1.25 rem"></i>
   </button>
 </template>
 
@@ -57,6 +58,10 @@ export default {
       type: Boolean,
       default: false,
     },
+    small: {
+      type: Boolean,
+      default: false,
+    },
   },
   emits: ['click'],
   setup(props, { emit }) {
@@ -80,8 +85,14 @@ export default {
   cursor: pointer;
   display: inline-flex;
   align-items: center;
+  outline: none;
+  color: #000;
 }
-.ls-btn:active {
+.ls-btn-small {
+  padding: 0.45rem 0.75rem;
+  font-size: 0.75rem;
+}
+.ls-btn:not(.ls-btn-disabled):active {
   background-color: var(--btn-click);
 }
 
@@ -93,9 +104,7 @@ export default {
   border-radius: 50%;
   padding: 0.75rem 0.75rem;
 }
-.ls-btn-disabled {
-  cursor: not-allowed;
-}
+
 .ls-btn-before-icon {
   margin-right: 0.625rem;
 }
@@ -107,7 +116,7 @@ export default {
   border: none;
   background-color: var(--primary);
 }
-.ls-btn-primary:active {
+.ls-btn-primary:not(.ls-btn-disabled):active {
   color: #fff;
   border: none;
   background-color: var(--primary-select);
@@ -117,7 +126,7 @@ export default {
   border: none;
   background-color: var(--danger);
 }
-.ls-btn-danger:active {
+.ls-btn-danger:not(.ls-btn-disabled):active {
   color: #fff;
   border: none;
   background-color: var(--danger-select);
@@ -127,7 +136,7 @@ export default {
   border: none;
   background-color: var(--warning);
 }
-.ls-btn-warning:active {
+.ls-btn-warning:not(.ls-btn-disabled):active {
   color: #fff;
   border: none;
   background-color: var(--warning-select);
@@ -137,9 +146,13 @@ export default {
   border: none;
   background-color: var(--success);
 }
-.ls-btn-success:active {
+.ls-btn-success:not(.ls-btn-disabled):active {
   color: #fff;
   border: none;
   background-color: var(--success-select);
+}
+.ls-btn-disabled {
+  cursor: not-allowed;
+  opacity: 0.7;
 }
 </style>
